@@ -6,8 +6,6 @@ def solution(n):
         i*=v
         if i > n:
             return v-1
-            break
-            
-        
+                    
     answer = v
     return answer
