@@ -1,7 +1,7 @@
 def solution(board):
     #only for ex3.
     n = len(board)
-    """cnt = 0
+    cnt = 0
     for i in board:
         if len(set(i))==1:
             cnt+=1
@@ -16,7 +16,6 @@ def solution(board):
         
     if cnt == n:
         return n*board[0][0]
-    """
     #for general case
     
     cor = []
