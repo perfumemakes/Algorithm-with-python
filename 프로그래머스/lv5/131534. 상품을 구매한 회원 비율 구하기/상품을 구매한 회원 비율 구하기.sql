@@ -27,10 +27,7 @@ FROM PURCHASE_2021, JOIN_2021
 
 
 /*
-select to_char(a.sales_date, 'yyyy') as YEAR, to_char(a.sales_date, 'mm') as MONTH, count(distinct a.user_id) as PUCHASED_USERS, round(count(distinct a.user_id)/158, 1) as PUCHSED_RATIO from online_sale a
-left outer join (select user_id, joined from user_info where to_char(joined, 'yyyy') = '2021') b on a.user_id = b.user_id
-group by to_char(a.sales_date, 'yyyy'), to_char(a.sales_date, 'mm')
-order by 1, 2;
+
 
 SELECT A.USER_ID,
                TO_CHAR(A.SALES_DATE,'YYYY') AS YEAR,
@@ -41,6 +38,12 @@ SELECT A.USER_ID,
         GROUP BY A.USER_ID,TO_CHAR(A.SALES_DATE,'YYYY'),TO_CHAR(A.SALES_DATE,'MM')
         ORDER BY 3;
         
+*/
+/*
+select to_char(a.sales_date, 'yyyy') as YEAR, to_char(a.sales_date, 'mm') as MONTH, count(distinct b.user_id) as PUCHASED_USERS, round(count(distinct a.user_id)/(select count(user_id) from user_info where to_char(joined, 'yyyy') = '2021'), 1) as PUCHSED_RATIO from online_sale a
+left outer join (select user_id, joined from user_info where to_char(joined, 'yyyy') = '2021') b on a.user_id = b.user_id
+group by to_char(a.sales_date, 'yyyy'), to_char(a.sales_date, 'mm')
+order by 1, 2;
 */
 
 SELECT YEAR,
